@@ -26,7 +26,7 @@
 
 # <a name='naming'>Правила именования</a>
 - Неизменяемые поля в (Companion) Object и compile-time константы именуются в стиле SCREAMING_SNAKE_CASE
-- Для полей View из Kotlin Extension используется стиль lower_snake_case
+- Для полей View из Kotlin Extension используется стиль lowerCamelCase
 - Любые другие поля именуются в стиле lowerCamelCase
 - Функции именуются в стиле lowerCamelCase
 - Классы именуются в стиле UpperCamelCase
@@ -139,13 +139,13 @@ var promoItem: PromoItem? = null
 8) internal методы
 9) protected методы
 10) private методы
-11) inner классы
+11) inner классы/интерфейсы/энамы/дата классы
 
 # <a name='lambda_formating'>Форматирование лямбда-выражений</a>
 
 - При возможности оставлять лямбда-выражение на одной строке, используя `it` в качестве аргумента.
 - При использовании лямба-функции в качестве аругмента выносить её за скобки если этот параметр единственный.
-- Если выражение возможно написать с передачей метода по ссылке, передавать метод по ссылке (Доступно с 1.1):
+- Если выражение возможно написать с передачей метода по ссылке, передавать метод по ссылке:
 ```kotlin
 viewPager.adapter = QuestAdapter(quest, this::onQuestClicked)
 ```
@@ -164,6 +164,14 @@ viewPager.adapter = QuestAdapter(quest, { quest ->
 ```kotlin
 return if (condition) foo() else bar()
 ```
+
+При создании локальной проперти по возможности использовать запись в 2 строки:
+
+```kotlin
+val conditionProperty = if (condition) foo()
+                        else bar()
+``` 
+
 У оператора `when` для коротких выражениях ветвей условия размещать их на одной строке с условием без фигурных скобок:
 ```kotlin
 when (somenCondition) {
